@@ -422,7 +422,7 @@ Copy the LXC container's SSH public key to the __osic-prep-ansible__ directory:
 
 ### Bootstrap the Servers
 
-Finally, run the bootstrap.yml Ansible Playbook:
+Finally, run the bootstrap.yml Ansible Playbook (the password is __cobbler__):
 
     cd /root/osic-prep-ansible
 
