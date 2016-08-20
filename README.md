@@ -99,7 +99,7 @@ Install software packages and load necessary dynamic kernel modules for networki
 
 #### Setting up storage devices.
 
-First, Determine storage devices on nodes that will be used for object storage. To do that, login to one of the swift nodes, list all disks by executing __sudo fdisk -l__. Available disks will be in the form of __/dev/sd\<x>__ except __dev/sda__ since it hosts the Operating System.
+First, determine storage devices on nodes that will be used for object storage. To do that, log into one of the swift nodes, list all disks by executing __sudo fdisk -l__. Available disks will be in the form of __/dev/sd\<x>__ except __dev/sda__ since it hosts the Operating System.
 
 If you still on the swift node, log out and return to your deployment node under __/opt/osic-ref-impl/playbooks__ directory and add the correct disks names under disks list in __./vars/swift-disks.yml__
 
@@ -165,8 +165,9 @@ Change to /etc/openstack_deploy:
     Edit IPs in each file compute.yml, infra.yml, network.yml, etc. add:
    * the IP which will interface each host (compute, storage, etc.) to the management network
         - ex. 172.22.12.27 if compute node is 172.22.4.27 and management is 172.22.12.0/22. Do for each compute node.
-        - NOTE: __infra hosts__ for infra.yml hosting infrastructure services are usually referencing controller hosts
+        - NOTE: __infra hosts__ (infra.yml) hosting infrastructure services are usually referencing controller hosts
    * storage devices of your swift nodes you previously determined under __drives__ in __swift.yml__.
+        - for __swift-proxy_hosts__ add ip address of controller nodes belonging to management network
 
 
 Configure service credentials by filling the user_secrets.yml manually or through OSA provided script:
