@@ -152,6 +152,8 @@ Change to /etc/openstack_deploy:
     cd /etc/openstack_deploy
 
 1. Open openstack_user_config.yml file and edit:
+   * cidr_networks - list ip and mask for container, tunnel, and storage networks (same as in opt/osic-ref-impl/playbooks/vars/vlan_network_mapping.yml)  
+        - Note: these terms are usually intermingled: management/container, overlay/tunnel
    * __cidr_networks__ to match your network configurations (these terms are usually mingled: Management and container networks, overlay and tunnel networks)
    * __used_ips__ to exclude ip addresses from usage by OSA(ip addresses used by servers should be included here).
    * __internal_lb_vip_address__ and __external_lb_vip_address__ to ip addresses of one of the controller nodes belonging to Management and Flat Network respectively.
