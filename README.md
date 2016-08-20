@@ -153,17 +153,19 @@ Change to /etc/openstack_deploy:
 
 1. Open openstack_user_config.yml file and edit:
    * __cidr_networks__ - list ip and mask for container, tunnel, and storage networks (same as in opt/osic-ref-impl/playbooks/vars/vlan_network_mapping.yml)  
-        - Note: these terms are usually intermingled: management/container, overlay/tunnel
+        - NOTE: these terms are usually intermingled: management/container, overlay/tunnel
    * __used_ips__ - ip address range used by networks should be included here to exclude ip addresses from usage by OSA
    * __internal_lb_vip_address__ - ip address of a controller node belonging to Management Network
-        - ex 172.22.12.23 if controller is 172.22.4.23 and managment is 172.22.12.0/22
+        - ex. 172.22.12.23 if controller is 172.22.4.23 and managment is 172.22.12.0/22
    * __external_lb_vip_address__ - ip address of a controller node belonging to Flat Network
-        - ex 172.22.148.23 if controller is 172.22.4.23 and network is 172.22.148.0/22
+        - ex. 172.22.148.23 if controller is 172.22.4.23 and flat is 172.22.148.0/22
 
-2. Move to __conf.d__ directory and edit:
-   * ip addresses of different hosts under compute_hosts, log_hosts, storage_hosts, network_hosts... to their ip addresses of the interface belonging to the management network (__infra hosts__ hosting infrastructure services are usually referencing controller hosts.)
+2. Move to __conf.d__ directory and edit the following files accordingly to align management network with nodes respectively:
+    Edit IPs in each file compute.yml, infra.yml, network.yml, etc. add:
+   * the IP which will interface each host (compute, storage, etc.) to the management network
+        - ex. 172.22.12.27 if compute node is 172.22.4.27 and management is 172.22.12.0/22. Do for each compute node.
    * storage devices of your swift nodes you previously determined under __drives__ in __swift.yml__.
-
+       - NOTE: __infra hosts__ hosting infrastructure services are usually referencing controller hosts.)
 
 Configure service credentials by filling the user_secrets.yml manually or through OSA provided script:
 
