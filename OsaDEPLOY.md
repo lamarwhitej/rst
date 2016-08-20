@@ -162,8 +162,8 @@ Change to /etc/openstack_deploy:
 
 2. Move to __conf.d__ directory and edit the following files accordingly to align management network with nodes respectively:
 
-    Edit IPs in each file of __conf.d__ compute.yml, infra.yml, network.yml, etc. add:
-   * the IP which will interface each host (compute, storage, etc.) to the management network
+    Edit IPs in each file of __conf.d__ - compute.yml, infra.yml, network.yml, etc. add:
+   * IP should reflect respective node (compute, storage, etc.) interfaced to management network
         - ex. 172.22.12.27 if compute node is 172.22.4.27 and management is 172.22.12.0/22. Do for each compute node.
         - NOTE: __infra hosts__ (infra.yml) hosting infrastructure services are usually referencing controller hosts
         - verify storage devices of your swift nodes you previously determined are under __drives__ in __swift.yml__.
