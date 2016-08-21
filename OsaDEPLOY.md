@@ -19,7 +19,7 @@ This document summarizes the steps to deploy an openstack cloud from the opensta
 By end of this chapter, keeping current configurations you will have an OpenStack environment composed of:
 - One deployment host
 - Eight compute hosts
-- Three logging hostsm
+- Three logging hosts
 - Three infrastructure hosts
 - Three cinder hosts
 - Three swift hosts
