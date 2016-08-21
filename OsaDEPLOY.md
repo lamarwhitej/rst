@@ -176,8 +176,8 @@ Configure service credentials by filling the user_secrets.yml manually or throug
     cd /opt/openstack-ansible/scripts
     python pw-token-gen.py --file /etc/openstack_deploy/user_secrets.yml
 
-##Ala I feel like people may make some mistakes in the parts above.  So maybe add a point to start again like below:
-    If you receive an error after running the playbook below __openstack-ansible setup-hosts.yml__.  Restart from "configure Network for target hosts (deployment included)".
+__Note__
+If you receive an error after running the playbook below __openstack-ansible setup-hosts.yml__.  Restart from "configure Network for target hosts (deployment included)".
        - You will need to go back and make necessary changes
        - Reboot your computer with command __ansible-playbook -i inventory/static-inventory.yml create-network-interfaces.yml__
        - rm /etc/openstack_deploy/openstack_inventory.json
