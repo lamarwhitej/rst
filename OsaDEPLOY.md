@@ -129,7 +129,9 @@ For its deployment OSA uses usually 3 networks to separate traffic between conta
 
 For that OSA will need a bridge on each host belonging to these networks. To do that, executing the playbook below will create these bridges with ip addresses of each bridge constructed by taking the last byte from the PXE ip address of the host and append it to the bridge network. For example if your host has 172.22.0.21 for its PXE interface, and if you configure your management_network to be 172.22.100.0/22, this playbook will create br-mgmt with its ip address equal to 172.22.100.__21__
 
-Now, first open __/opt/osic-ref-impl/playbooks/vars/vlan_network_mapping.yml__ file and change settings there to match your network configurations.
+Now, first open __/opt/osic-ref-impl/playbooks/vars/vlan_network_mapping.yml__ file and change settings there to match your network configurations.  Add the vlan and subnet accordingly.
+
+
 
 Then execute the following command:
 
@@ -160,14 +162,15 @@ Change to /etc/openstack_deploy:
    * __external_lb_vip_address__ - ip address of a controller node belonging to Flat Network
         - ex. 172.22.148.23 if controller is 172.22.4.23 and flat is 172.22.148.0/22
 
-2. Move to __conf.d__ directory and edit the following files accordingly to align management network with nodes respectively:
+2. Move to __conf.d__ directory and edit the following (read ALL before editing):
 
     Edit IPs in each file of __conf.d__ - compute.yml, infra.yml, network.yml, etc. add:
    * IP should reflect respective node (compute, storage, etc.) interfaced to management network
-        - ex. 172.22.12.27 if compute node is 172.22.4.27 and management is 172.22.12.0/22 and add each compute node
-        - NOTE: __infra hosts__ (infra.yml) hosting infrastructure services are usually referencing controller hosts
+        - ex. 172.22.12.27 if compute is 172.22.4.27 and management is 172.22.12.0/22 and add each compute node
         - verify storage devices of your swift nodes you previously determined are under __drives__ in __swift.yml__
-        - for __swift-proxy_hosts__ add ip address of controller nodes belonging to management network
+        - for __swift-proxy_hosts__ in swift.yml add ip address of controller nodes belonging to management network
+        - __infra hosts__ (infra.yml) hosting infrastructure services are usually referencing controller hosts
+
 
 
 Configure service credentials by filling the user_secrets.yml manually or through OSA provided script:
