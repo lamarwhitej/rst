@@ -155,9 +155,7 @@ Change to /etc/openstack_deploy:
 ##Ala I changed below
 1. Open openstack_user_config.yml file and edit:
    * __cidr_networks__ - list ip and mask for container, tunnel, and storage networks
-        
         __NOTE:__ these terms are usually intermingled: management/container, overlay/tunnel
-
    * __used_ips__ - ip address range used by networks should be included here to exclude ip addresses from usage by OSA
    * __internal_lb_vip_address__ - ip address of a controller node belonging to Management Network
         - ex. 172.22.12.23 if controller is 172.22.4.23 and managment is 172.22.12.0/22
