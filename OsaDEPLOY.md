@@ -186,8 +186,9 @@ Configure service credentials by filling the user_secrets.yml manually or throug
     - rerun playbook
 
 
-OpenStack Installation (__RIGHT HERE__ Ala Add estimate times so people will know since these take more time than other commands)
+OpenStack Installation 
 -----------------------
+(__RIGHT HERE__ Ala Add estimate times for running playbooks so people will know since these take more time than other commands.  They will know if they can take a coffee break or let it run and travel home, etc.)
 
 move to openstack-ansible repository:
 
