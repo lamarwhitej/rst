@@ -129,7 +129,7 @@ For its deployment OSA uses usually 3 networks to separate traffic between conta
 
 For that OSA will need a bridge on each host belonging to these networks. To do that, executing the playbook below will create these bridges with ip addresses of each bridge constructed by taking the last byte from the PXE ip address of the host and append it to the bridge network. For example if your host has 172.22.0.21 for its PXE interface, and if you configure your management_network to be 172.22.100.0/22, this playbook will create br-mgmt with its ip address equal to 172.22.100.__21__
 
-Now, first open __/opt/osic-ref-impl/playbooks/vars/vlan_network_mapping.yml__ file and change settings there to match your network configurations.  Add the vlan and subnet accordingly.
+Now, first open __/opt/osic-ref-impl/playbooks/vars/vlan_network_mapping.yml__ file and change settings there to match your network configurations.  Add the vlan and subnet accordingly in the file. ##Ala I add the last sentence
 
 
 
@@ -152,9 +152,9 @@ Copy OSA configuration files for our environment to /etc/openstack_deploy:
 Change to /etc/openstack_deploy:
 
     cd /etc/openstack_deploy
-
+##Ala I changed below
 1. Open openstack_user_config.yml file and edit:
-   * __cidr_networks__ - list ip and mask for container, tunnel, and storage networks (same as in opt/osic-ref-impl/playbooks/vars/vlan_network_mapping.yml)  
+   * __cidr_networks__ - list ip and mask for container, tunnel, and storage networks
         __NOTE:__ these terms are usually intermingled: management/container, overlay/tunnel
    * __used_ips__ - ip address range used by networks should be included here to exclude ip addresses from usage by OSA
    * __internal_lb_vip_address__ - ip address of a controller node belonging to Management Network
@@ -171,14 +171,22 @@ Change to /etc/openstack_deploy:
         - for __swift-proxy_hosts__ in swift.yml add ip address of controller nodes belonging to management network
         - __infra hosts__ (infra.yml) hosting infrastructure services are usually referencing controller hosts
 
-
-
 Configure service credentials by filling the user_secrets.yml manually or through OSA provided script:
 
     cd /opt/openstack-ansible/scripts
     python pw-token-gen.py --file /etc/openstack_deploy/user_secrets.yml
 
-OpenStack Installation
+##Ala I feel like people may make some mistakes in the parts above.  So maybe add a point to start again like below:
+
+    If you receive an error after running the playbook below __openstack-ansible setup-hosts.yml__.  Restart from "configure Network for target hosts (deployment included)".
+    - You will need to go back and make necessary changes
+    - Reboot your computer with command __ansible-playbook -i inventory/static-inventory.yml create-network-interfaces.yml__
+    - rm /etc/openstack_deploy/openstack_inventory.json
+    - rm /etc/openstack_deploy/ansible_facts/*
+    - rerun playbook
+
+
+OpenStack Installation (__RIGHT HERE__ Ala Add estimate times so people will know, approximate time since these take more time than other commands)
 -----------------------
 
 move to openstack-ansible repository:
@@ -198,4 +206,8 @@ Install OpenStack services (keystone, glane, cinder, nova, neutron, heat, horizo
     openstack-ansible setup-openstack.yml
 
 
-Congratulation! you have your OpenStack cluster running.
+Congratulation! you have your OpenStack cluster running
+##Ala I added the below
+To log in use the user credentials set in /etc/openstack_deploy/user_secrets.yml:
+   * Look for __keystone_auth_admin_password__ in file
+   * Log in using user admin and password from above
