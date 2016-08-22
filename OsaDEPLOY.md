@@ -172,8 +172,7 @@ Change to /etc/openstack_deploy:
         - __infra hosts__ (infra.yml) hosting infrastructure services are usually referencing controller hosts
 
 __Ala__ you should add something like below for if someone fails when running the first playbook
-
-If you receive an error after running the playbooks:
+    * If you receive an error after running the playbooks below:
         - Restart from "configure Network for target hosts (deployment included)"
         - You will need to go back and make necessary changes
         - Reboot your computer with command __ansible-playbook -i inventory/static-inventory.yml create-network-interfaces.yml__
