@@ -171,7 +171,13 @@ Change to /etc/openstack_deploy:
         - for __swift-proxy_hosts__ in swift.yml add ip address of controller nodes belonging to management network
         - __infra hosts__ (infra.yml) hosting infrastructure services are usually referencing controller hosts
 
+Configure service credentials by filling the user_secrets.yml manually or through OSA provided script:
+
+    cd /opt/openstack-ansible/scripts
+    python pw-token-gen.py --file /etc/openstack_deploy/user_secrets.yml
+    
 __Ala__ you should add something like below for if someone fails when running the first playbook
+
     * If you receive an error after running the playbooks below:
         - Restart from "configure Network for target hosts (deployment included)"
         - You will need to go back and make necessary changes
@@ -179,11 +185,6 @@ __Ala__ you should add something like below for if someone fails when running th
         - rm /etc/openstack_deploy/openstack_inventory.json
         - rm /etc/openstack_deploy/ansible_facts/*
         - rerun playbook
-
-Configure service credentials by filling the user_secrets.yml manually or through OSA provided script:
-
-    cd /opt/openstack-ansible/scripts
-    python pw-token-gen.py --file /etc/openstack_deploy/user_secrets.yml
 
 
 OpenStack Installation 
@@ -208,7 +209,7 @@ Install OpenStack services (keystone, glane, cinder, nova, neutron, heat, horizo
 
 
 Congratulation! you have your OpenStack cluster running
-##Ala I added the below
+__Ala__ I added the below
 To log in use the user credentials set in /etc/openstack_deploy/user_secrets.yml:
    * Look for __keystone_auth_admin_password__ in file
    * Log in using user admin and password from above
