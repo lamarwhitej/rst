@@ -9,6 +9,8 @@ For those areas I didn't add them to the docs (except typos).  I just added it m
 Those changes are only in the OSA install though. __Search "Ala" in OSA doc__.  And you will see what I added.
 For the baremetal I just had suggestions and typos.  They can be found below.
 
+Also, note the links I added in here are just reference points to where in the doc.
+
 ===
 
 __FIRST DOC BAREMETAL__
@@ -36,7 +38,7 @@ Time 1hr 36mins (forgot to uncheck box for image)
 Cobbler - Setup the osic-prep LXC Container
 ==========================================
 Start 1:46
-- In 'Cobbler Overview' section, would need to be --among other things--. I changed it in the link already.
+- In 'Cobbler Overview' section, would need to be --among other things--. I changed it in the my link already.
 
 PxE Boot SErvers
 ================
