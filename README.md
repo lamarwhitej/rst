@@ -89,15 +89,15 @@ https://github.com/osic/ref-impl/blob/master/documents/osa-refimpl-deploy.md#set
 
 - No reference to what pxe_network should be. They will more than likely already know.  But just a, and you know what pxe should be or something
 https://github.com/osic/ref-impl/blob/master/documents/osa-refimpl-deploy.md#configure-network-for-target-hosts-deployment-included
+
 end 1:31
 
 Configuring OpenStack environment
 =================================
-Start picked back up next day.  And messed up a lot here
+Messed up a lot here. So times got off.
 - Should I add the other 2 infra hosts for loadbalancer?? On step 2.  That isn't mentioned.
 https://github.com/osic/ref-impl/blob/master/documents/osa-refimpl-deploy.md#configuring-openstack-environment
 
-end 12:58
 
 Openstack Installation
 ======================
