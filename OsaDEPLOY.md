@@ -171,9 +171,10 @@ Change to /etc/openstack_deploy:
         - for __swift-proxy_hosts__ in swift.yml add ip address of controller nodes belonging to management network
         - __infra hosts__ (infra.yml) hosting infrastructure services are usually referencing controller hosts
 
-    If you receive an error after running the playbooks below:
-   * Restart from "configure Network for target hosts (deployment included)"
-   
+__Ala__ you should add something like below for if someone fails when running the first playbook
+
+If you receive an error after running the playbooks:
+        - Restart from "configure Network for target hosts (deployment included)"
         - You will need to go back and make necessary changes
         - Reboot your computer with command __ansible-playbook -i inventory/static-inventory.yml create-network-interfaces.yml__
         - rm /etc/openstack_deploy/openstack_inventory.json
@@ -184,17 +185,6 @@ Configure service credentials by filling the user_secrets.yml manually or throug
 
     cd /opt/openstack-ansible/scripts
     python pw-token-gen.py --file /etc/openstack_deploy/user_secrets.yml
-    
-    
-    
-    If you receive an error after running the playbooks below:
-   * Restart from "configure Network for target hosts (deployment included)"
-   
-        - You will need to go back and make necessary changes
-        - Reboot your computer with command __ansible-playbook -i inventory/static-inventory.yml create-network-interfaces.yml__
-        - rm /etc/openstack_deploy/openstack_inventory.json
-        - rm /etc/openstack_deploy/ansible_facts/*
-        - rerun playbook
 
 
 OpenStack Installation 
