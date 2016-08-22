@@ -6,7 +6,7 @@ Here is a link to my github with changes I added for the docs: https://github.co
 It is a bit nitpicky some of it. So don't pay it too much mind.  For some areas I went in and added the changes I wanted.  
 For those areas I didn't add them to the docs (except typos).  I just added it manually.
 
-Those changes are only in the OSA install though. Search "Ala".  And you will see what I added.
+Those changes are only in the OSA install though. __Search "Ala" in OSA doc__.  And you will see what I added.
 For the baremetal I just had suggestions and typos.  They can be found below.
 
 ===
