@@ -82,7 +82,7 @@ Next, you will download a pre-packaged LXC container that contains a tool you ne
 
 ### Cobbler overview
 
-There is a numerous tools that implement the PXE mechanism. However, we decided here to use Cobbler since it is a powerful, easy to use and handy when it comes to quickly setting up network installation environments. Cobbler is a Linux based provisioning system which lets you among others configure Network installation for each server from its MAC address, manage DNS and serve DHCP requests…
+There is a numerous tools that implement the PXE mechanism. However, we decided here to use Cobbler since it is a powerful, easy to use and handy when it comes to quickly setting up network installation environments. Cobbler is a Linux based provisioning system which lets you, among other things, configure Network installation for each server from its MAC address, manage DNS and serve DHCP requests…
 
 ### Setup LXC Linux Bridge
 
